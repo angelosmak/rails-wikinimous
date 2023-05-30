@@ -8,7 +8,7 @@
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
   </div>
-    <%= button_to article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link delete-button" do %>
+    <%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-link delete-button" do %>
       <i class="fa-regular fa-trash-can"></i>
     <% end %>
     </div>

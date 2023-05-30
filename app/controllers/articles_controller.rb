@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :set_articles, only: [:show, :edit, :update, :destroy]
+
   def home
   end
 
@@ -7,7 +9,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
@@ -21,17 +22,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update(article_params)
     redirect_to articles_path
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end
@@ -42,5 +40,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :content)
   end
 
-  #<ActionController::Parameters {"controller"=>"articles", "action"=>"edit", "id"=>"1"} permitted: false>
+  def set_articles
+    @article = Article.find(params[:id])
+  end
 end
