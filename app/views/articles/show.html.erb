@@ -1,0 +1,20 @@
+<div class=" d-flex justify-content-center">
+  <div class="mt-4 col-4">
+    <div class=" article-header ">
+    <div class="article-header">
+      <h2 class="article-title"><%= @article.title %></h2>
+      <a href="<%= article_edit_path(@article.id) %>" class="edit-link"></a>
+      <%= button_to article_edit_path(@article), method: :get, class: "btn btn-link edit-button" do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+  </div>
+    <%= button_to article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link delete-button" do %>
+      <i class="fa-regular fa-trash-can"></i>
+    <% end %>
+    </div>
+    </h2>
+  <div class="separate pt-4">
+    <p><%= @article.content %></p>
+    </div>
+  </div>
+</div>
